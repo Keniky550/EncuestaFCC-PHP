@@ -1,0 +1,89 @@
+body{
+    background-color: aquamarine;
+    min-height: 100%;
+    align-items: center;
+    justify-self: center;
+    justify-content: center;
+    display: grid;
+    padding: 0;
+}
+form .underforms{
+    margin: 0;
+}
+h4{
+    background-color: antiquewhite;
+    text-align: center;
+    padding: 0;
+}
+p{
+    margin: 0px 15px;
+}
+.lik > p{
+    margin: 8px 0px;
+}
+.form{
+    display: block;
+    margin: 20px; 
+}
+.cont{
+    margin: 40px;
+    background-color: bisque;
+    border: 2px solid black;
+    display: grid;
+    padding: 0;
+    justify-self: center;
+}
+.container{
+    margin: 25px;
+    display: grid; 
+    grid-template-columns: 1;
+}
+.underforms{
+    display: grid;
+    grid-auto-flow: column;
+}
+.enviar{
+    justify-self:flex-end;
+    margin: 15px;
+}
+.likert{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+}
+.lik{
+    text-align: center;
+}
+.box{
+    display: grid;
+    grid-template-areas: 
+    "label1 input1"
+    "label2 input2"
+    "label3 input3";
+    justify-self:center;
+    margin: 10px;
+}
+.reg{
+    margin: 5px 10px;
+}
+.val{
+    margin: 5px 10px;
+}
+#lab1{
+    grid-area: label1;
+}
+#lab2{
+    grid-area: label2;
+}
+#lab3{
+    grid-area: label3;
+}
+#egreso{
+    grid-area: input1;
+}
+#nom_promo{
+    grid-area: input2;
+}
+#lug_trabajo{
+    grid-area: input3;
+}
