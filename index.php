@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <style>
+        <?php
+            include_once __DIR__. '/css/style.css';
+        ?>
+    </style>
+    <title>LoginFCC</title>
+</head>
 <?php
     require('db.php');
     $conexion = conection();
@@ -6,7 +19,7 @@
         $cod = $_POST['usuario'];
         $pass = $_POST['contraseña'];
         $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = $conexion->prepare("SELECT * FROM students WHERE cod = :cod and doc_num = :pass");
+        $query = $conexion->prepare("SELECT * FROM student WHERE cod = :cod and doc_num = :pass");
         $query->bindParam(":cod", $cod);
         $query->bindParam(":pass", $pass);
         $query->execute();
@@ -20,14 +33,6 @@
         }
 }
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>LoginFCC</title>
-</head>
 <body>
     <div class="register">
         <h2>Encuesta FCC</h2>
