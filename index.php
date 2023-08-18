@@ -12,7 +12,7 @@
     <title>LoginFCC</title>
 </head>
 <?php
-    require('db.php');
+    require('conn.php');
     $conexion = conection();
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         session_start();

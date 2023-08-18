@@ -1,5 +1,5 @@
 <?php
-    require("db.php");
+    require("conn.php");
     $conexion = conection();
 
     $archivo = fopen("./datos/DOC_TYPE.csv", "r");
