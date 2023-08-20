@@ -5,7 +5,7 @@
         private $host ="localhost";
         private $bd ="encuesta";
 
-        function conectar(){
+        function conectar(){ 
             try {
                 $conect = new PDO('mysql:host=localhost;dbname=encuesta', $this->user, $this->pass);
                 echo 'Conexión correcta';

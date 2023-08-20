@@ -43,7 +43,7 @@
         try {
             $conexion -> beginTransaction();
             while(($datos  = fgetcsv($archivo, 0, ","))== true){
-                $conexion -> exec("INSERT INTO student VALUES ('','$datos[0],'$datos[1]','$datos[2]','$datos[3]','$datos[4]','$datos[5]','$datos[6]')"); 
+                $conexion -> exec("INSERT INTO student VALUES ('','$datos[0]','$datos[1]','$datos[2]','".addslashes($datos[3])."','".addslashes($datos[4])."','".addslashes($datos[5])."','$datos[6]')"); 
             }
             $conexion -> commit();
         } catch (PDOException $e) {
@@ -57,7 +57,7 @@
         $kenneth = new KEN();
         $archivo = fopen("./datos/TEMPORAL.csv", "r");
         $conexion = $kenneth->conection();
-        $sql = 'SELECT id_sudent FROM student';
+        $sql = 'SELECT id_student FROM student';
         //$result = $conexion->query($sql);
         try {
             $conexion -> beginTransaction();
@@ -75,8 +75,8 @@
         
         fclose($archivo);
     }
-    insertSchool();
-    insertDocType();
-    insertStudent();
+    //insertSchool();
+    //insertDocType();
+    //insertStudent();
     insertTemporal();
 ?>
