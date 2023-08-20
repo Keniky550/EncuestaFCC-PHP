@@ -57,17 +57,17 @@
         $kenneth = new KEN();
         $archivo = fopen("./datos/TEMPORAL.csv", "r");
         $conexion = $kenneth->conection();
-        $sql = 'SELECT id_student FROM student';
+        //$sql = 'SELECT id_student FROM student';
         //$result = $conexion->query($sql);
         try {
             $conexion -> beginTransaction();
-            $dat = $kenneth -> consultar($sql);  
-            foreach ($dat as $val){
-                $id=$val['id_sudent'];
-                while(($datos  = fgetcsv($archivo, 0, ","))== true){
-                    $conexion -> exec("INSERT INTO temporal VALUES ('','$id','$datos[0]','$datos[1]','$datos[2]','$datos[3]','$datos[4]','$datos[5]')"); 
+            //$dat = $kenneth -> consultar($sql);
+            //$ids = null;
+
+             while(($datos  = fgetcsv($archivo, 0, ","))== true){
+                    $conexion -> exec("INSERT INTO temporal VALUES ('','$datos[0]','$datos[1]','$datos[2]','$datos[3]','$datos[4]','$datos[5]','$datos[6]','$datos[7]','$datos[8]',null)");
                 }
-            }
+            
             $conexion -> commit();
         } catch (PDOException $e) {
             echo "ERROR: " .$e->getMessage();
