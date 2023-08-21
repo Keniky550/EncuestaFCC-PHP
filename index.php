@@ -15,6 +15,11 @@
     require('conn.php');
     $kenneth = new KEN();
     $conexion = $kenneth -> conection();
+    if (!$conexion){
+        echo json_encode(['message' => 'failed to connect']);
+        exit();
+    }
+
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         session_start();
         $cod = $_POST['usuario'];
@@ -26,9 +31,9 @@
         $query->execute();
         $usuario = $query->fetch(PDO::FETCH_ASSOC);
         if($usuario){
-            $_SESSION['usuario'] = $usuario['cod'];
+            $_SESSION['usuario'] = $cod;
             header('location:home.php');
-            exit; // Es importante agregar exit para evitar problemas
+            exit;
         } else {
            echo '';
         }

@@ -3,15 +3,25 @@
     require('conn.php');
     $kenneth = new KEN();
     $user = $_SESSION['usuario'];
-    $sql = 'SELECT * FROM student WHERE cod = :user'; // Consulta con un marcador de posición
-    $valores = array(':user' => $user); // Valores a reemplazar en la consulta
-    $datos = $kenneth->consultar($sql);
+    $sql = 'SELECT * FROM temporal INNER JOIN student ON temporal.id_student = student.id_student INNER JOIN school ON student.id_school = school.id_school and student.cod = :user';
+    $valores = array(':user' => $user); 
+    if(isset($sql)){
+        $datos = $kenneth->consultar($sql, $valores);
+        foreach ($datos as $dato){ 
+            $codigo = $dato['cod'];
+            $doc = $dato['doc_num'];
+            $nombre = $dato['est_name'];
+            $apep = $dato['paternal_surna'];
+            $apem = $dato['maternal_surna'];
+            $inst = $dato['inst_email'];
+            $per = $dato['per_email'];
+            $tel = $dato['phone_num'];
+            $cel = $dato['cel_num'];
+            $school = $dato['name_school']; 
+        }
 
-    foreach ($datos as $dato) { // Cambiado a un foreach para recorrer los resultados
-        $codigo = $dato['cod'];
-        $nombre = $dato['est_name'];
-        $apep = $dato['paternal_surna'];
-        $apem = $dato['maternal_surna'];
+    }else{
+        echo "Error";
     }
 ?>
 <!DOCTYPE html>
@@ -34,49 +44,49 @@
                     <section class="form">
                         <div class="container">
                             <label for="codigo">Código: </label>
-                            <input type="text" id="codigo" name="codigo" size="10" disabled>
+                            <input type="text" id="codigo" name="codigo" size="10" value="<?php echo $codigo ?>" disabled>
                         </div>
                         <div class="container">
                             <label for="dni">Número documento: </label>
-                            <input type="text" id="dni" name="dni" size="10" disabled>
+                            <input type="text" id="dni" name="dni" size="10" value="<?php echo $doc ?>" disabled>
                         </div>
                     </section>
                     <section class="form">
                         <div class="container"> 
                             <label class="nom" for="nombre">Nombre: </label>
-                            <input type="text" id="nombre" name="nombre" size="15" disabled>
+                            <input type="text" id="nombre" name="nombre" size="15" value="<?php echo $nombre ?>" disabled>
                         </div>
                         <div class="container">
                             <label for="apellido_p">Apellido paterno: </label>
-                            <input type="text" id="apellido_p" name="apellido_p" size="15" disabled>
+                            <input type="text" id="apellido_p" name="apellido_p" size="15" value="<?php echo $apep ?>" disabled>
                         </div>
                         <div class="container">
                             <label for="apellido_m">Apellido materno: </label>
-                            <input type="text" id="apellido_m" name="apellido_m" size="15" disabled>
+                            <input type="text" id="apellido_m" name="apellido_m" size="15" value="<?php echo $apem ?>" disabled>
                         </div>
                     </section>
                     <section class="form">
                         <div class="container">
                             <label for="correo_inst">Correo institucional: </label>
-                            <input type="email" id="correo_inst" name="correo_inst" size="30" disabled>
+                            <input type="email" id="correo_inst" name="correo_inst" size="30" value="<?php echo $inst ?>" disabled>
                         </div>
                         <div class="container">
                             <label for="correo_per">Correo personal: </label>
-                            <input type="email" id="correo_per" name="correo_per" size="30" disabled>
+                            <input type="email" id="correo_per" name="correo_per" size="30" value="<?php echo $per ?>" disabled>
                         </div>
                     </section>
                     <section class="form">
                         <div class="container">
                             <label for="telefono">Teléfono:</label>
-                            <input type="text" id="telefono" name="telefono" size="10" disabled>
+                            <input type="text" id="telefono" name="telefono" size="10" value="<?php echo $tel ?>" disabled>
                         </div>
                         <div class="container">
                             <label for="celular">Celular:</label>
-                            <input type="text" id="telefono" name="telefono" size="10" disabled>
+                            <input type="text" id="telefono" name="telefono" size="10" value="<?php echo $cel ?>" disabled>
                         </div>
                         <div class="container">
                             <label for="escuela">Escuela:</label>
-                            <input type="text" id="escuela" name="escuela" size="10" disabled>
+                            <input type="text" id="escuela" name="escuela" size="10" value="<?php echo $school ?>" disabled>
                         </div>
                     </section>
                 </div>
