@@ -23,9 +23,9 @@
                 $consulta = $this->conexion->prepare($sql);
                 $consulta->execute();
                 $resultados=$consulta->fetchAll(PDO::FETCH_ASSOC);
-                
                 return $resultados;
             }else{
+               // echo "sin conexion: " . $sql;
                 return 0;
             }
         }

@@ -13,7 +13,8 @@
 </head>
 <?php
     require('conn.php');
-    $conexion = conection();
+    $kenneth = new KEN();
+    $conexion = $kenneth -> conection();
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         session_start();
         $cod = $_POST['usuario'];
@@ -25,11 +26,11 @@
         $query->execute();
         $usuario = $query->fetch(PDO::FETCH_ASSOC);
         if($usuario){
-            $_SESSION['usuario'] = $usuario['name'];
+            $_SESSION['usuario'] = $usuario['cod'];
             header('location:home.php');
             exit; // Es importante agregar exit para evitar problemas
         } else {
-            $error_message = "Usuario o contraseña incorrectos";
+           echo '';
         }
 }
 ?>
@@ -43,8 +44,8 @@
                     <input type="text" id="cod" name="usuario" size="8">
                 </div>
                 <div class="log">
-                    <label id="login2" for="dni">DNI:</label>
-                    <input type="text" id="dni" name="contraseña" size="8">
+                    <label id="login2" for="dni">DOCUMENTO:</label>
+                    <input type="password" id="dni" name="contraseña" size="8">
                 </div>
             </div>
             <input class="log" type="submit" value="INGRESAR">

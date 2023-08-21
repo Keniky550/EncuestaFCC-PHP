@@ -78,5 +78,5 @@
     //insertSchool();
     //insertDocType();
     //insertStudent();
-    insertTemporal();
+    //insertTemporal();
 ?>

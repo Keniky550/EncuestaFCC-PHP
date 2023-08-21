@@ -1,3 +1,19 @@
+<?php
+    session_start();
+    require('conn.php');
+    $kenneth = new KEN();
+    $user = $_SESSION['usuario'];
+    $sql = 'SELECT * FROM student WHERE cod = :user'; // Consulta con un marcador de posición
+    $valores = array(':user' => $user); // Valores a reemplazar en la consulta
+    $datos = $kenneth->consultar($sql);
+
+    foreach ($datos as $dato) { // Cambiado a un foreach para recorrer los resultados
+        $codigo = $dato['cod'];
+        $nombre = $dato['est_name'];
+        $apep = $dato['paternal_surna'];
+        $apem = $dato['maternal_surna'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
