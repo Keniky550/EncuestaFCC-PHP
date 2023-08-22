@@ -18,10 +18,9 @@
             $tel = $dato['phone_num'];
             $cel = $dato['cel_num'];
             $school = $dato['name_school']; 
+            
         }
 
-    }else{
-        echo "Error";
     }
 ?>
 <!DOCTYPE html>
@@ -93,11 +92,11 @@
                 <p>Si desea corregir sus datos, enviar correo a: informatica.fcc@unmsm.edu.pe</p>
             </div>
         </form>
-        <form class="cont" action="enviado.html" target="_blank" method="post" autocomplete="off">
+        <form class="cont" action="upd.php" method="post" autocomplete="off">
             <h4>REGISTRO DE DATOS</h4>
             <div class="box">
                 <label class="reg" id="lab1" for="egreso">Periodo de egreso:</label>
-                <input class="reg" type="text" id="egreso" name="egreso" size="10">
+                <input class="reg" type="text" id="egreso" name="egreso" size="10" value="<?php $datos[''] ?>">
                 <label class="reg" id="lab2" for="nom_promo">Nombre de promoción:</label>
                 <input class="reg" type="text" id="nom_promo" name="nom_promo" size="20">
                 <label class="reg" id="lab3" for="lug_trabajo">Centro de trabajo:</label>
