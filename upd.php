@@ -27,9 +27,11 @@
     
             try {
                 $update->execute();
-                echo "Datos actualizados correctamente.";
             } catch (PDOException $e) {
                 echo "Hubo un problema al actualizar los datos: " . $e->getMessage();
+            }
+            if($update->execute()){  
+                $_SESSION['datos_actualizados'] = true;
             }
         }
     }

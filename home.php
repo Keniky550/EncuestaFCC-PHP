@@ -133,5 +133,18 @@
             </div>
             <input class="enviar" type="submit" value="Enviar">
         </form>
+
+        <?php
+            if (isset($_SESSION['datos_actualizados']) && $_SESSION['datos_actualizados']) {
+            ?>
+                <script>
+                    window.onload = function() {
+                        alert('DATOS ACTUALIZADOS:\nPeriodo de egreso: <?php echo $egre; ?>\nNombre de promoción: <?php echo $nom; ?>\nCentro de trabajo: <?php echo $place; ?>');
+                        <?php unset($_SESSION['datos_actualizados']); ?>
+                    }
+                </script>
+            <?php
+            }
+        ?>
 </body>
 </html>
