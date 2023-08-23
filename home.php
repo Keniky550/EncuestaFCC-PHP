@@ -96,7 +96,7 @@
                 <p>Si desea corregir sus datos, enviar correo a: informatica.fcc@unmsm.edu.pe</p>
             </div>
         </form>
-        <form class="cont" action="index.php" method="post" autocomplete="off">
+        <form class="cont" action="upd.php" method="post" autocomplete="off">
             <h4>REGISTRO DE DATOS</h4>
             <div class="box">
                 <label class="reg" id="lab1" for="egreso">Periodo de egreso (xxxx-x):</label>

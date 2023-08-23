@@ -35,7 +35,7 @@
             header('location:home.php');
             exit;
         } else {
-           echo '';
+           echo 'ERROR';
         }
 }
 ?>
@@ -49,7 +49,7 @@
                     <input type="text" id="cod" name="usuario" size="8">
                 </div>
                 <div class="log">
-                    <label id="login2" for="dni">DOCUMENTO:</label>
+                    <label id="login2" for="dni">Documento:</label>
                     <input type="password" id="dni" name="contraseña" size="8">
                 </div>
             </div>

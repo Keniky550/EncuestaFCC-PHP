@@ -23,10 +23,11 @@
             $update->bindParam(':nom', $nom);
             $update->bindParam(':place', $place);
             $update->bindParam(':desm', $desm);
-            $update->bindParam(':id', $id); // Usamos la variable $id obtenida antes
+            $update->bindParam(':id', $id); 
     
             try {
                 $update->execute();
+                header('location: index.php');
             } catch (PDOException $e) {
                 echo "Hubo un problema al actualizar los datos: " . $e->getMessage();
             }
