@@ -96,10 +96,10 @@
                 <p>Si desea corregir sus datos, enviar correo a: informatica.fcc@unmsm.edu.pe</p>
             </div>
         </form>
-        <form class="cont" action="upd.php" method="post" autocomplete="off">
+        <form class="cont" action="index.php" method="post" autocomplete="off">
             <h4>REGISTRO DE DATOS</h4>
             <div class="box">
-                <label class="reg" id="lab1" for="egreso">Periodo de egreso:</label>
+                <label class="reg" id="lab1" for="egreso">Periodo de egreso (xxxx-x):</label>
                 <input class="reg" type="text" id="egreso" name="egreso" size="10" value="<?php $grad ?>">
                 <label class="reg" id="lab2" for="nom_promo">Nombre de promoción:</label>
                 <input class="reg" type="text" id="nom_promo" name="nom_promo" size="20" value="<?php $promo ?>">
