@@ -17,10 +17,14 @@
             $per = $dato['per_email'];
             $tel = $dato['phone_num'];
             $cel = $dato['cel_num'];
-            $school = $dato['name_school']; 
-            
+            $school = $dato['name_school'];
+            $grad = $dato['grad_per'];
+            $promo = $dato['name_promo'];
+            $work = $dato['work_place'];
         }
-
+    if(isset($_GET['upd'])){
+        $id = $_GET['upd'];
+    }
     }
 ?>
 <!DOCTYPE html>
@@ -96,33 +100,33 @@
             <h4>REGISTRO DE DATOS</h4>
             <div class="box">
                 <label class="reg" id="lab1" for="egreso">Periodo de egreso:</label>
-                <input class="reg" type="text" id="egreso" name="egreso" size="10" value="<?php $datos[''] ?>">
+                <input class="reg" type="text" id="egreso" name="egreso" size="10" value="<?php $grad ?>">
                 <label class="reg" id="lab2" for="nom_promo">Nombre de promoción:</label>
-                <input class="reg" type="text" id="nom_promo" name="nom_promo" size="20">
+                <input class="reg" type="text" id="nom_promo" name="nom_promo" size="20" value="<?php $promo ?>">
                 <label class="reg" id="lab3" for="lug_trabajo">Centro de trabajo:</label>
-                <input class="reg" id="in3" type="text" id="lug_trabajo" name="lug_trabajo" size="20">
+                <input class="reg" id="in3" type="text" id="lug_trabajo" name="lug_trabajo" size="20" value="<?php $work ?>">
             </div>
             <div class="lik">
                 <p>Desempeño profesional satisfactorio</p>
                 <div class="likert">
                     <div class="val">
-                        <input type="radio" id="1" name="desempeño" value="totalmente en desacuerdo">
+                        <input type="radio" id="1" name="desempeño" value="1">
                         <label for="1">Totalmente en desacuerdo</label>
                     </div>
                     <div class="val">
-                        <input type="radio" id="2" name="desempeño" value="en desacuerdo">
+                        <input type="radio" id="2" name="desempeño" value="2">
                         <label for="2">En desacuerdo</label>
                     </div>
                     <div class="val">
-                        <input type="radio" id="3" name="desempeño" value="ni de acuerdo ni en desacuerdo">
+                        <input type="radio" id="3" name="desempeño" value="3">
                         <label for="3">Ni de acuerdo ni en desacuerdo</label>
                     </div>
                     <div class="val">
-                        <input type="radio" id="4" name="desempeño" value="de acuerdo">
+                        <input type="radio" id="4" name="desempeño" value="4">
                         <label for="4">De acuerdo</label>
                     </div>
                     <div class="val">
-                        <input type="radio" id="5" name="desempeño" value="Totalmente de acuerdo">
+                        <input type="radio" id="5" name="desempeño" value="5">
                         <label for="5">Totalmente de acuerdo</label>
                     </div>
                 </div>
