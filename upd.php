@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require('conn.php');
+    require_once('conn.php');
     $kenneth = new KEN();
     $cod = $_SESSION['usuario'];
     $sqlVerId = 'SELECT id_student FROM student WHERE cod = :cod';
@@ -10,7 +10,7 @@
     if ($resultadoVerId) {
         $id = $resultadoVerId[0]['id_student'];
     
-        if (!empty($_POST['egreso']) && !empty($_POST['nom_promo']) && !empty($_POST['lug_trabajo']) && !empty($_POST['desempeño'])) {
+
             $egre = $_POST['egreso'];
             $nom = $_POST['nom_promo'];
             $place = $_POST['lug_trabajo'];
@@ -27,10 +27,13 @@
     
             try {
                 $update->execute();
-                header('location: index.php');
+                if ($update->execute()) {
+                    header('location: home.php');
+                    $mostrarmodal = True;
+                }
             } catch (PDOException $e) {
                 echo "Hubo un problema al actualizar los datos: " . $e->getMessage();
+                header('location: home.php');
             }
-        }
     }
 ?>
