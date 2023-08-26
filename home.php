@@ -37,6 +37,7 @@
             include_once __DIR__. '/css/registro.css';
         ?>
     </style>
+    <script src='./javascript/modal.js'></script>
     <title>RegistroFCC</title>
 </head>
 <body>
@@ -131,7 +132,7 @@
                 </div>
             </div>
         </div>
-        <input id='mostar-modal' class="enviar" type="submit" value="Enviar">
+        <input id='abrir-modal' class="enviar" type="submit" value="Enviar">
     </form>
         
 
@@ -139,6 +140,6 @@
         <h2>DATOS REGISTRADOS</h2>
     </dialog>
 
-    <script src="./javascript/modal.js"></script>
+    
 </body>
 </html>

@@ -28,8 +28,7 @@
             try {
                 $update->execute();
                 if ($update->execute()) {
-                    header('location: home.php');
-                    $mostrarmodal = True;
+                    $mostrarmodal = true;
                 }
             } catch (PDOException $e) {
                 echo "Hubo un problema al actualizar los datos: " . $e->getMessage();
